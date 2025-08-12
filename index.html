@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>KPT Game</title>
+    <link rel="stylesheet" href="style.css"/>
+    <script type="module" src="./kpt.js"></script>
+  </head>
+  <body>
+    <h1>KPT Game</h1>
+    <div id="app" v-cloak>
+      <div v-show="score" id="score">Your Score: {{score}}</div>
+
+      <div v-show="game_start">
+        <h3>Game Time</h3>
+        <div class="progress-bar">
+          <span :style="{width: game_progress}"></span>
+        </div>
+        <h3>Turn Time</h3>
+        <div class="progress-bar">
+          <span :style="{width: turn_progress}"></span>
+        </div>
+        <div class="kpt-choice">
+          <span v-if="!strong">{{choice.strong}}</span>
+          <span v-if="!strong">→</span>
+          <input ref="input" @keyup.enter="check_answer"></input>
+          <span v-if="strong">→</span>
+          <span v-if="strong">{{choice.weak}}</span>
+        </div>
+      </div>
+
+      <div class="kpt-choice" v-show="failed">
+        <span>{{choice.strong}}</span>→<span>{{choice.weak}}</span>
+      </div>
+
+      <button v-show="!game_start" @click="start_game">{{button}}</button>
+
+      <div class="kpt" v-show="!game_start">
+        <template v-for="e in kpt">
+          <span>{{e.strong}}</span><span>→</span><span>{{e.weak}}</span>
+        </template>
+      </div>
+    </div>
+  </body>
+</html>

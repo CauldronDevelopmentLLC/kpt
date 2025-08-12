@@ -1,0 +1,68 @@
+html * {
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+[v-cloak] {
+  display: none;
+}
+
+#score, #timer {
+  font-size: 150%;
+  font-weight: bold;
+  margin: 1em;
+}
+
+#timer {
+  font-size: 120%;
+}
+
+.kpt-choice span, input {
+  width: 4em;
+  display: inline-block;
+}
+
+button {
+  font-size: 120%;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 10px;
+  background: #2a2;
+  margin: 1em auto;
+  padding: 0.25em;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #4c4;
+}
+
+.progress-bar {
+  margin: 0.5em auto;
+  width: 200px;
+  height: 20px;
+  border-radius: 3px;
+  border: 1px solid #888
+}
+
+.progress-bar span {
+  height: 100%;
+  border-radius: 3px;
+  background-color: #383;
+  display: block;
+}
+
+.kpt {
+  width: 20em;
+  padding-left: 3em;
+  margin: 1em auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr 1fr 2fr);
+}
+
+.kpt > span {
+  display: block;
+  width: 100%;
+  text-align: left;
+}
